@@ -27,10 +27,10 @@ app.post('/login', (req, res) => {
     StudentModel.findOne({ email })
         .then(user => {
             if (user && user.password === password) {
-                const accessToken = jwt.sign({ email: email }, "jwt-access-token-secret-key", { expiresIn: "1m" });
-                const refreshToken = jwt.sign({ email: email }, "jwt-refresh-token-secret-key", { expiresIn: "5m" });
+                const accessToken = jwt.sign({ email: email }, "jwt-access-token-secret-key", { expiresIn: "2h" });
+                const refreshToken = jwt.sign({ email: email }, "jwt-refresh-token-secret-key", { expiresIn: "2h" });
 
-                res.cookie("accessToken", accessToken, { maxAge: 600000 });
+                res.cookie("accessToken", accessToken, { maxAge: 2 * 60 * 60 * 1000 }); // 2 hours in milliseconds
                 res.cookie("refreshToken", refreshToken,
                     { maxAge: 3000000, httpOnly: true, secure: true, sameSite: "strict" });
                 return res.json({ Login: true });
@@ -71,8 +71,8 @@ const renewToken = (req, res) => {
                 res.clearCookie("refreshToken");
                 return res.json({ valid: false, message: "Invalid Refresh Token" });
             } else {
-                const accessToken = jwt.sign({ email: decoded.email }, "jwt-access-token-secret-key", { expiresIn: "1m" });
-                res.cookie("accessToken", accessToken, { maxAge: 600000 });
+                const accessToken = jwt.sign({ email: decoded.email }, "jwt-access-token-secret-key", { expiresIn: "2h" });
+                res.cookie("accessToken", accessToken, { maxAge: 2 * 60 * 60 * 1000 });
                 return true;
             }
         });
@@ -92,11 +92,14 @@ app.get('/user', verifyUser, (req, res) => {
         .catch(err => res.json(err));
 });
 
-app.get('/getUsers', verifyUser, (req, res) => {
-    StudentModel.find()
-        .then(users => res.json(users))
-        .catch(err => res.json(err));
+app.post('/logout', (req, res) => {
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+    return res.json({ message: "Logged out successfully" });
 });
+
+
+
 
 app.listen(3001, () => {
     console.log("Server is running on port 3001");

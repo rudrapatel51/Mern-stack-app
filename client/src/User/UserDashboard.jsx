@@ -33,26 +33,39 @@ const UserDashboard = () => {
     }
   }, [navigate]);
 
+  const handleLogout = async () => {
+    try {
+        await axios.post('http://localhost:3001/logout', {}, { withCredentials: true });
+        // Optionally, clear any local state or context related to user authentication
+        navigate('/login'); // Redirect to login page or any other appropriate route
+    } catch (error) {
+        console.error("Logout failed:", error);
+    }
+};
+
   return (
     <div>
       
       <div>
         {error ? (
-          <p>{error}</p>  
-        ) : (
-          user && (
-            <div>
-              <h1>User Profile</h1>
-              <p>Name: {user.name}</p>
-              <p>Email: {user.email}</p>
-            </div>
-          )
-        )}
-      </div>
-      <div className='text-black text-center'>
+          <div>
+          <p className='text-center text-2xl font-semibold '>Please Login To access</p>  
+          <div className='text-black text-center font-bold p-5'>
         <a href='/register'>Register</a>
         <br />
         <a href='/login'>Login</a>
+      </div>
+      </div>
+        ) : (
+          user && (
+            <div className='text-center'>
+              <h1 className='p-5 font-bold text-4xl'>User Profile</h1>
+              <p className='font-semibold text-xl py-2'>Name: {user.name}</p>
+              <p>Email: {user.email}</p>
+            <button className='text-black bg-red-600 ' onClick={handleLogout}>Logout</button>
+            </div>
+          )
+        )}
       </div>
     </div>
   );
