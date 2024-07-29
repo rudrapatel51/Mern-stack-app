@@ -22,8 +22,8 @@ const Navbar = () => {
         </a>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
         {isLoggedIn ? (
-            <Link to="/dashboard">
-              <FaUserAlt size={20} />
+            <Link to="/dashboard" className='flex items-center'>
+              <FaUserAlt size={20} className='sm:mr-2 sm:mt-1' />
             </Link>
           ) : (
             <Link to="/login">
