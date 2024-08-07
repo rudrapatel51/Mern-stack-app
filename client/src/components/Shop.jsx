@@ -10,7 +10,7 @@ const Shop = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                setProducts(data); // Updated to setProducts
+                setProducts(data);
             });
     }, []);
 

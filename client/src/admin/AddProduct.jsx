@@ -12,7 +12,7 @@ const AddProduct = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        setProduct(prevState => ({
+        setProduct((prevState) => ({
             ...prevState,
             [name]: value,
         }));
@@ -30,36 +30,86 @@ const AddProduct = () => {
     };
 
     return (
-        <div>
-            <h2>Add Product</h2>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Name:
-                    <input type="text" name="name" value={product.name} onChange={handleChange} required />
-                </label>
-                <br />
-                <label>
-                    Description:
-                    <textarea name="description" value={product.description} onChange={handleChange} required></textarea>
-                </label>
-                <label>
-                    Category:
-                    <textarea name="category" value={product.category} onChange={handleChange} required></textarea>
-                </label>
-                <label>
-                    ImageUrl:
-                    <textarea name="imageUrl" value={product.imageUrl} onChange={handleChange} required></textarea>
-                </label>
-                <br />
-                <label>
-                    Price:
-                    <input type="number" name="price" value={product.price} onChange={handleChange} required />
-                </label>
-                <br />
-                <button type="submit">Add Product</button>
-            </form>
+        <div className="grid gap-8">
+            <div className="grid gap-4">
+                <div className="flex items-center justify-between">
+                    <h1 className="text-2xl font-bold">Products</h1>
+                </div>
+                <div className="card">
+                    <div className="card-content">
+                        <form onSubmit={handleSubmit} className="grid gap-4">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="grid gap-2">
+                                    <label className="font-bold" htmlFor="name">Name</label>
+                                    <input
+                                        id="name"
+                                        name="name"
+                                        type="text"
+                                        value={product.name}
+                                        onChange={handleChange}
+                                        placeholder="Product Name"
+                                        required
+                                    />
+                                </div>
+                                <div className="grid gap-2">
+                                    <label className="font-bold" htmlFor="price">Price</label>
+                                    <input
+                                        id="price"
+                                        name="price"
+                                        type="number"
+                                        value={product.price}
+                                        onChange={handleChange}
+                                        placeholder="$0.00"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div className="grid gap-2">
+                                <label className="font-bold" htmlFor="description">Description</label>
+                                <textarea
+                                    id="description"
+                                    name="description"
+                                    value={product.description}
+                                    onChange={handleChange}
+                                    placeholder="Describe your product..."
+                                    rows={3}
+                                    required
+                                ></textarea>
+                            </div>
+                            <div className="grid gap-2">
+                                <label className="font-bold" htmlFor="category">Category</label>
+                                <input
+                                    id="category"
+                                    name="category"
+                                    type="text"
+                                    value={product.category}
+                                    onChange={handleChange}
+                                    placeholder="Product Category"
+                                    required
+                                />
+                            </div>
+                            <div className="grid gap-2">
+                                <label className="font-bold" htmlFor="imageUrl">Product Image URL</label>
+                                <input
+                                    id="imageUrl"
+                                    name="imageUrl"
+                                    type="text"
+                                    value={product.imageUrl}
+                                    onChange={handleChange}
+                                    placeholder="Product Image URL"
+                                    required
+                                />
+                            </div>
+                            <button type="submit" className="btn bg-blue-500 w-50">
+                                Add Product
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
-}
+};
 
 export default AddProduct;

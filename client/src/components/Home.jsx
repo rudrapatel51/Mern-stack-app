@@ -1,6 +1,8 @@
 import React from 'react';
 import "./home.css"
 import Category from './Categories/Category';
+import PopularCategories from './Categories/PopularCategories';
+import AutoImageRotate from './AutoImageRotate';
 
 const Home = () => {
   return (
@@ -29,7 +31,9 @@ const Home = () => {
           </div>
         </section>
       </main>
-      <Category/>
+      <PopularCategories />
+      <Category />
+      <AutoImageRotate />
     </div>
   );
 }
