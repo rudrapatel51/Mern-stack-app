@@ -1,6 +1,6 @@
-import axios from 'axios'
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from 'axios';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -14,11 +14,11 @@ const Login = () => {
         e.preventDefault();
         axios.post("http://localhost:3001/login", { email, password })
             .then(res => {
-                if (res.data.Login) {
-                    localStorage.setItem('accessToken', res.data.accessToken); // this is to store the token in cookie
+                if (res.data.login) {
+                    localStorage.setItem('accessToken', res.data.accessToken); // Store the token in localStorage
                     navigate('/');
                 } else {
-                    console.error('Login failed:', res.data.Message);
+                    console.error('Login failed:', res.data.message);
                     setError('Invalid email or password');
                 }
             })
@@ -82,7 +82,7 @@ const Login = () => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

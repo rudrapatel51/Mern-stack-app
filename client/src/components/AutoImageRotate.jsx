@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import './autoslider.css'
 
 const images = [
-    'https://via.placeholder.com/150/0000FF',
+    'https://via.placeholder.com/50/0000FF',
     'https://via.placeholder.com/150/FF0000',
     'https://via.placeholder.com/150/00FF00',
     'https://via.placeholder.com/150/FFFF00',
