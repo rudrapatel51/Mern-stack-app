@@ -11,15 +11,14 @@ const UserDashboard = () => {
   useEffect(() => {
     const accessToken = localStorage.getItem('accessToken');
     if (accessToken) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;  // Fixed template literal
+      axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
       axios.get("http://localhost:3001/user")
         .then(response => {
-          console.log('Response:', response.data);  // Debugging line
+          console.log('Response:', response.data); // Debugging line
           if (response.data.valid) {
             setUser(response.data.user);
           } else {
             setError('User not authenticated');
-            // console.log(setError);
             // navigate('/login');  // Redirect to login if not authenticated
           }
         })
@@ -32,6 +31,7 @@ const UserDashboard = () => {
       // navigate('/login');  // Redirect to login if no access token
     }
   }, [navigate]);
+  
 
   const handleLogout = async () => {
     try {

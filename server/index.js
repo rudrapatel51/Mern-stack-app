@@ -66,26 +66,24 @@ app.post('/login', (req, res) => {
         .catch(err => res.status(500).json({ error: err.message }));
 });
 
-// Middleware to verify the user
 const verifyUser = (req, res, next) => {
-    const accessToken = req.cookies.accessToken;
+    const authHeader = req.headers['authorization'];
+    const accessToken = authHeader && authHeader.split(' ')[1]; // Extract the token part
+
     if (!accessToken) {
-        if (renewToken(req, res)) {
-            next();
-        } else {
-            return res.status(401).json({ valid: false, message: "No access token provided" });
-        }
-    } else {
-        jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET, (err, decoded) => {
-            if (err) {
-                return res.status(401).json({ valid: false, message: "Invalid Token" });
-            } else {
-                req.email = decoded.email;
-                next();
-            }
-        });
+        return res.status(401).json({ valid: false, message: "No access token provided" });
     }
+
+    jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ valid: false, message: "Invalid Token" });
+        } else {
+            req.email = decoded.email;
+            next();
+        }
+    });
 };
+
 
 // Function to renew access token using the refresh token
 const renewToken = (req, res) => {
@@ -119,6 +117,7 @@ app.get('/user', verifyUser, (req, res) => {
         })
         .catch(err => res.status(500).json({ error: err.message }));
 });
+
 
 // Admin registration route
 app.post('/admin/register', async (req, res) => {
