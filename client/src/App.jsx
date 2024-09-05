@@ -10,11 +10,13 @@ import AdminLogin from './admin/AdminLogin';
 import AdminDashboard from './admin/AdminDashboard';
 import Shop from './components/Shop';
 import SingleProductPage from './components/single_product/SingleProductPage';
+import {CartProvider} from './context/CartContext'
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+      <CartProvider>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
@@ -29,6 +31,7 @@ const App = () => {
             {/* <Route path="*" element={<NoPage />} /> */}
           </Route>
         </Routes>
+      </CartProvider>
       </BrowserRouter>
     </>
   )

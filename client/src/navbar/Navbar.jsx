@@ -1,11 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState , useContext} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FaUserAlt, FaShoppingCart, FaHeart, FaSearch, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 import { useAuth } from "../Auth/AuthContext";
+import { CartContext } from '../context/CartContext';
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isLoggedIn } = useAuth();
+  const { openCart } = useContext(CartContext);
 
   return (
     <nav className="bg-white shadow-md">
@@ -59,7 +62,7 @@ const Navbar = () => {
 
         <div className="flex md:order-2 items-center space-x-6">
           <button className="hidden lg:block"><FaHeart size={20} /></button>
-          <button className="hidden lg:flex items-center">
+          <button onClick={openCart} className="hidden lg:flex items-center">
             <FaShoppingCart size={20} className="text-green-500" />
             <span className="ml-1">0</span>
           </button>
