@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams , useNavigate} from 'react-router-dom';
+import { addToCart } from '../../cart/redux/cartSlice';
+import { useDispatch } from 'react-redux';
 
 const SingleProductPage = () => {
     const { id } = useParams();
     const [product, setProduct] = useState(null);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:3001/products/${id}`)
@@ -13,6 +17,13 @@ const SingleProductPage = () => {
                 console.log(data)
             });
     }, [id]);
+
+    const handleAddToCart = () => {
+        if (product) {
+            dispatch(addToCart(product));
+            alert('Product added to cart successfully!');
+        }
+    };
     
     if (!product) {
         return <div>Loading...</div>;
@@ -32,7 +43,7 @@ const SingleProductPage = () => {
                         </div>
                         <div className="flex -mx-2 mb-4">
                             <div className="w-1/2 px-2">
-                                <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
+                                <button onClick={handleAddToCart} className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">
                                     Add to Cart
                                 </button>
                             </div>

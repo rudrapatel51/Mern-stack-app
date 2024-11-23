@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 const CheckOut = () => {
   const { cartItems, totalAmount } = useSelector(state => state.cart);
@@ -19,6 +20,8 @@ const CheckOut = () => {
     shippingMethod: 'standard',
     paymentMethod: 'credit'
   });
+  const [orderSuccess, setOrderSuccess] = useState(null);
+
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,11 +31,34 @@ const CheckOut = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission - you can add your logic here
-    console.log('Form submitted:', formData);
-    console.log('Cart items:', cartItems);
+    try {
+      const orderItems = cartItems.map(item => ({
+        productId: item._id, 
+        quantity: item.quantity,
+        name : item.name,
+        price : item.price
+      }));
+      const orderData = {
+        ...formData,
+        items: orderItems,
+        subtotal: totalAmount,
+        totalAmount: formData.shippingMethod === 'express' ? totalAmount + 15 : totalAmount,
+      };
+
+      const response = await axios.post('http://localhost:3001/api/orders', orderData, {
+        // headers: {
+        //   Authorization: `Bearer ${localStorage.getItem('token')}`, 
+        // },
+      });
+
+      setOrderSuccess(response.data);
+      console.log('Order Created:', response.data);
+    } catch (error) {
+      console.error('Error creating order:', error.response?.data || error.message);
+    }
   };
 
   return (
@@ -40,6 +66,12 @@ const CheckOut = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
+          {orderSuccess && (
+            <div className="bg-green-100 text-green-700 p-4 rounded mb-4">
+              Order created successfully! Order ID: {orderSuccess.orderId}
+            </div>
+          )}
+
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Left Column - Form */}

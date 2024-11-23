@@ -10,6 +10,7 @@ import bcrypt from 'bcrypt';
 import * as dotenv from 'dotenv';
 import logger from "./config/logger.js";
 import { requestLogger } from "./middleware/loggerMiddleware.js";
+import Order from './models/Order.js';
 dotenv.config();
 
 const app = express();
@@ -213,6 +214,159 @@ app.get('/products/:id', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
+});
+
+
+app.post('/api/orders', async (req, res) => {
+  try {
+    const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      address,
+      apartment,
+      city,
+      state,
+      zipCode,
+      items,
+      paymentMethod,
+      shippingMethod,
+      subtotal,
+      totalAmount
+    } = req.body;
+
+    // Calculate shipping cost based on shipping method
+    const shippingCost = shippingMethod === 'express' ? 15 : 0;
+
+    const newOrder = new Order({
+      user: {
+        email,
+        firstName,
+        lastName,
+        phone
+      },
+      shippingAddress: {
+        address,
+        apartment,
+        city,
+        state,
+        zipCode
+      },
+      items,
+      paymentMethod,
+      shippingMethod,
+      subtotal,
+      shippingCost,
+      totalAmount,
+    });
+
+    await newOrder.save();
+    res.status(201).json({ 
+      success: true, 
+      message: 'Order created successfully', 
+      orderId: newOrder._id 
+    });
+  } catch (error) {
+    res.status(400).json({ 
+      success: false, 
+      message: 'Error creating order', 
+      error: error.message 
+    });
+  }
+});
+
+// Get all orders for a specific user
+app.get('/api/orders', async (req, res) => {
+  try {
+    const orders = await Order.find({ 'user.email': req.email })
+      .sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error fetching orders', 
+      error: error.message 
+    });
+  }
+});
+
+// Get a specific order by ID
+app.get('/api/orders/:orderId', async (req, res) => {
+  try {
+    const order = await Order.findById(req.params.orderId);
+    if (!order) {
+      return res.status(404).json({ 
+        success: false, 
+        message: 'Order not found' 
+      });
+    }
+    
+    // Check if the order belongs to the requesting user
+    if (order.user.email !== req.email) {
+      return res.status(403).json({ 
+        success: false, 
+        message: 'Unauthorized access to this order' 
+      });
+    }
+    
+    res.json(order);
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error fetching order', 
+      error: error.message 
+    });
+  }
+});
+
+// Admin route to get all orders (requires admin verification)
+app.get('/api/admin/orders', async (req, res) => {
+  try {
+    const orders = await Order.find()
+      .sort({ createdAt: -1 });
+    res.json(orders);
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error fetching orders', 
+      error: error.message 
+    });
+  }
+});
+
+// Admin route to update order status
+app.patch('/api/admin/orders/:orderId/status', async (req, res) => {
+  try {
+    const { status } = req.body;
+    const order = await Order.findByIdAndUpdate(
+      req.params.orderId,
+      { 
+        status,
+        updatedAt: Date.now()
+      },
+      { new: true }
+    );
+    
+    if (!order) {
+      return res.status(404).json({ 
+        success: false, 
+        message: 'Order not found' 
+      });
+    }
+    
+    res.json({ 
+      success: true, 
+      message: 'Order status updated successfully', 
+      order 
+    });
+  } catch (error) {
+    res.status(500).json({ 
+      success: false, 
+      message: 'Error updating order status', 
+      error: error.message 
+    });
+  }
 });
 
 

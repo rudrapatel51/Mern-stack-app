@@ -12,6 +12,7 @@ import Shop from './components/Shop';
 import SingleProductPage from './components/single_product/SingleProductPage';
 import {CartProvider} from './context/CartContext'
 import CheckOut from './checkout/CheckOut';
+import AdminOrder from './admin/AdminOrder';
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
+            <Route path="/admin/orders" element={<AdminOrder />} />
             <Route path="/products/:id" element={<SingleProductPage />} />
             <Route path="/checkout" element={<CheckOut />} />
             {/* <Route path="*" element={<NoPage />} /> */}

@@ -6,6 +6,25 @@ const initialState = {
   totalQuantity: 0,
 };
 
+// saving all cart in localstorage
+const loadCartFromStorage = () => {
+  try {
+    const cartData = localStorage.getItem('cart');
+    return cartData ? JSON.parse(cartData) : {
+      cartItems: [],
+      totalAmount: 0,
+      totalQuantity: 0,
+    };
+  } catch (error) {
+    console.error('Error loading cart from localStorage:', error);
+    return {
+      cartItems: [],
+      totalAmount: 0,
+      totalQuantity: 0,
+    };
+  }
+};
+
 const calculateTotals = (items) => {
   return items.reduce(
     (totals, item) => ({
@@ -16,9 +35,17 @@ const calculateTotals = (items) => {
   );
 };
 
+const saveCartToStorage = (state) => {
+  try {
+    localStorage.setItem('cart', JSON.stringify(state));
+  } catch (error) {
+    console.error('Error saving cart to localStorage:', error);
+  }
+};
+
 const cartSlice = createSlice({
   name: 'cart',
-  initialState,
+  initialState : loadCartFromStorage(),
   reducers: {
     addToCart: (state, action) => {
       const existingItem = state.cartItems.find(
@@ -38,6 +65,8 @@ const cartSlice = createSlice({
       const totals = calculateTotals(state.cartItems);
       state.totalQuantity = totals.totalQuantity;
       state.totalAmount = totals.totalAmount;
+
+      saveCartToStorage(state);
     },
     
     removeFromCart: (state, action) => {
@@ -49,6 +78,8 @@ const cartSlice = createSlice({
       const totals = calculateTotals(state.cartItems);
       state.totalQuantity = totals.totalQuantity;
       state.totalAmount = totals.totalAmount;
+
+      saveCartToStorage(state);
     },
     
     updateQuantity: (state, action) => {
@@ -65,8 +96,18 @@ const cartSlice = createSlice({
         const totals = calculateTotals(state.cartItems);
         state.totalQuantity = totals.totalQuantity;
         state.totalAmount = totals.totalAmount;
+
+        saveCartToStorage(state);
       }
     },
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+      
+      // Clear localStorage
+      localStorage.removeItem('cart');
+    }
   },
 });
 
