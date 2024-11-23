@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../cart/redux/cartSlice';
 import Cart from '../cart/Cart';
+import { useNavigate } from 'react-router-dom';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch("http://localhost:3001/products")
@@ -19,6 +21,10 @@ const Shop = () => {
     dispatch(addToCart(product));
   };
 
+  const handleProductClick = (id) => {
+    navigate(`/products/${id}`);
+  };
+
 
   return (
     <div className="bg-white">
@@ -27,7 +33,11 @@ const Shop = () => {
 
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
           {products.map((product, index) => (
-            <div key={product._id || index} className="group">
+            <div
+            key={product._id || index}
+            className="group cursor-pointer"
+            onClick={() => handleProductClick(product._id)}
+          >
               <div className="bg-white p-4 rounded-lg shadow">
                 <span className="bg-pink-500 text-white px-2 py-1 rounded-full text-xs">
                   {product.category}
@@ -43,7 +53,10 @@ const Shop = () => {
                 </p>
                 <p className="text-gray-600 text-sm">{product.category}</p>
                 <button
-                  onClick={() => handleAddToCart(product)}
+                  onClick={(e) => {
+                    e.stopPropagation(); 
+                    handleAddToCart(product);
+                  }}
                   className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                 >
                   Add to Cart
@@ -53,7 +66,7 @@ const Shop = () => {
           ))}
         </div>
       </div>
-      <Cart />
+      {/* <Cart /> */}
     </div>
   );
 };

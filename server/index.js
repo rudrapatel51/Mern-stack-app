@@ -201,6 +201,22 @@ app.get('/products', async (req, res) => {
     }
 });
 
+// getting the product by id in single product
+app.get('/products/:id', async (req, res) => {
+    const { id } = req.params;
+    try {
+        const product = await Product.findById(id);
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.json(product);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+
 const PORT = process.env.PORT || 3002;
 app.listen(PORT, () => {
     logger.info(`Server is running on port ${PORT}`);

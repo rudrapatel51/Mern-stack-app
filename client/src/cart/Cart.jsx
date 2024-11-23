@@ -13,10 +13,12 @@ const Cart = () => {
     dispatch(removeFromCart({ id }));
   };
 
-  const handleUpdateQuantity = (id, newQuantity) => {
-    dispatch(updateQuantity({ id, quantity: newQuantity }));
+  const handleQuantityChange = (id, currentQuantity, change) => {
+    const newQuantity = currentQuantity + change;
+    if (newQuantity >= 0) {
+      dispatch(updateQuantity({ id, quantity: newQuantity }));
+    }
   };
-
 
   return (
     <div className={`fixed inset-0 z-10 overflow-hidden ${isCartOpen ? 'block' : 'hidden'}`}>
@@ -54,21 +56,23 @@ const Cart = () => {
                             <div className="ml-4 flex flex-1 flex-col">
                               <div className="flex justify-between text-base font-medium text-gray-900">
                                 <h3>{product.name}</h3>
-                                <p className="ml-4">${product.price}</p>
+                                <p className="ml-4">${(product.price * product.quantity).toFixed(2)}</p>
                               </div>
                               <p className="mt-1 text-sm text-gray-500">{product.category}</p>
                               <div className="flex flex-1 items-end justify-between text-sm">
-                                <div className="flex items-center">
+                                <div className="flex items-center space-x-2">
                                   <button
-                                    onClick={() => handleUpdateQuantity(product.id, product.quantity - 1)}
-                                    className="px-2 py-1 bg-gray-200 rounded-l"
+                                    onClick={() => handleQuantityChange(product._id, product.quantity, -1)}
+                                    className="px-3 py-1 bg-gray-200 rounded-l hover:bg-gray-300 transition-colors"
                                   >
                                     -
                                   </button>
-                                  <span className="px-4 py-1 bg-gray-100">{product.quantity}</span>
+                                  <span className="px-4 py-1 bg-gray-100 min-w-[40px] text-center">
+                                    {product.quantity}
+                                  </span>
                                   <button
-                                    onClick={() => handleUpdateQuantity(product.id, product.quantity + 1)}
-                                    className="px-2 py-1 bg-gray-200 rounded-r"
+                                    onClick={() => handleQuantityChange(product._id, product.quantity, 1)}
+                                    className="px-3 py-1 bg-gray-200 rounded-r hover:bg-gray-300 transition-colors"
                                   >
                                     +
                                   </button>
@@ -76,7 +80,7 @@ const Cart = () => {
                                 <button
                                   type="button"
                                   className="font-medium text-indigo-600 hover:text-indigo-500"
-                                  onClick={() => handleRemoveFromCart(product.id)}
+                                  onClick={() => handleRemoveFromCart(product._id)}
                                 >
                                   Remove
                                 </button>
@@ -85,7 +89,7 @@ const Cart = () => {
                           </li>
                         ))
                       ) : (
-                        <p className="text-center">Your cart is empty.</p>
+                        <p className="text-center py-4">Your cart is empty.</p>
                       )}
                     </ul>
                   </div>
@@ -99,7 +103,7 @@ const Cart = () => {
                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div className="mt-6">
                   <a
-                    href="#"
+                    href="/checkout"
                     className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                   >
                     Checkout

@@ -2914,3 +2914,1173 @@
   level: 'info',
   timestamp: '2024-09-05T12:42:34.183Z'
 }
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-11-23T07:42:03.049Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:42:35.640Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:42:35.699Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:42:35.706Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:42:35.718Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T07:44:30.224Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:44:30.234Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T07:44:30.238Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:44:30.243Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:01.299Z'
+}
+{
+  message: 'Response status: 400',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:01.325Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:07.998Z'
+}
+{
+  message: 'Response status: 400',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:08.016Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:29.720Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:29.880Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:35.597Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:35.758Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:37.693Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:37.858Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.341Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.492Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.506Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.647Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.652Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.809Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:38.878Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:39.050Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:51.667Z'
+}
+{
+  message: 'Response status: 201',
+  level: 'info',
+  timestamp: '2024-11-23T07:45:51.877Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-11-23T07:46:01.260Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:46:01.423Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:54:42.576Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:54:42.582Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:54:42.586Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:54:42.592Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:55:29.884Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:55:29.893Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:55:29.895Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:55:29.902Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:43.394Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:43.416Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:43.424Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:43.439Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:52.890Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:52.902Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:52.907Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:52.921Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:54.080Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:54.089Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:54.095Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T07:57:54.105Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:58:08.171Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T07:58:08.178Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:58:08.186Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T07:58:08.194Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:20.190Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:20.195Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:20.198Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:20.209Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:35.914Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:35.928Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:35.932Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:09:35.940Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:10:28.188Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:10:28.193Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:21.854Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:21.861Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:21.864Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:21.870Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:27.451Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:27.460Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:27.466Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:11:27.481Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:17:20.365Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:17:20.369Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:17:20.370Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:17:20.374Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:23:39.673Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:23:39.678Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:23:39.680Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:23:39.684Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:26:56.571Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:26:56.575Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:26:56.576Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:26:56.580Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:03.506Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:03.509Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:03.511Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:03.515Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:07.501Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:07.506Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:07.508Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:07.512Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:10.648Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:10.652Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:10.653Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:10.656Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:14.289Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:14.293Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:14.295Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:14.299Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:47.773Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:47.776Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:47.777Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:47.780Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:51.109Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:51.113Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:51.114Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:51.118Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:57.549Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:57.553Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:57.555Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-11-23T08:28:57.558Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:45:28.177Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:45:28.182Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:45:28.184Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:45:28.187Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:48:27.184Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:48:27.186Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:35.187Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:35.191Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:37.267Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:37.270Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:37.271Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:49:37.275Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:19.181Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:19.185Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:21.186Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:21.194Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:34.176Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:34.178Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:34.179Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:34.182Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:44.994Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:44.997Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:44.999Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:45.002Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:47.363Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:47.366Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:47.367Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:47.371Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:51.169Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:50:51.171Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:30.196Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:30.200Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:39.818Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:39.821Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:39.823Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:52:39.826Z'
+}
+{
+  message: 'Incoming request: GET /products/66be31b2dfbe1c0b9a81c48e',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:00.636Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:00.641Z'
+}
+{
+  message: 'Incoming request: GET /products/66be31b2dfbe1c0b9a81c48e',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:00.643Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:00.644Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:28.288Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:28.291Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:28.292Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:28.296Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:29.531Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:29.533Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:29.535Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-11-23T08:53:29.538Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-11-23T08:54:58.833Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:12.409Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:16.151Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:45.184Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:45.213Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:54.877Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:54.884Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:54.886Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:56:54.892Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:13.202Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:13.206Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:13.207Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:13.211Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:16.153Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:16.158Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:16.163Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T08:58:16.165Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:32.194Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:32.199Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:32.200Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:32.205Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:34.574Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:34.581Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:34.583Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:34.587Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:55.943Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:55.949Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:58.751Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T08:59:58.755Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:01.178Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:01.191Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:14.176Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:14.181Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:25.213Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:25.217Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:25.218Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:25.222Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:26.798Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:26.802Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:26.804Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:26.809Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:44.040Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:44.043Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:44.044Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:44.050Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:45.235Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:45.239Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:45.240Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:45.244Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:51.548Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:51.555Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:51.556Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:51.563Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:53.380Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:53.384Z'
+}
+{
+  message: 'Incoming request: GET /products/66d1907290f6fdca869c82a2',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:53.387Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:53.390Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:55.458Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:55.462Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:55.464Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:55.468Z'
+}
+{
+  message: 'Incoming request: GET /products/66be31b2dfbe1c0b9a81c48e',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:56.368Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:56.371Z'
+}
+{
+  message: 'Incoming request: GET /products/66be31b2dfbe1c0b9a81c48e',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:56.372Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:00:56.378Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:09.386Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:09.390Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:09.392Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:09.396Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:26.493Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:26.497Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:26.498Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-11-23T09:01:26.502Z'
+}

@@ -10,9 +10,10 @@ const SingleProductPage = () => {
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data);
+                console.log(data)
             });
     }, [id]);
-
+    
     if (!product) {
         return <div>Loading...</div>;
     }
@@ -59,7 +60,7 @@ const SingleProductPage = () => {
                                 <span className="text-gray-600 dark:text-gray-300">{product.availability}</span>
                             </div>
                         </div>
-                        <div className="mb-4">
+                        {/* <div className="mb-4">
                             <span className="font-bold text-gray-700 dark:text-gray-300">Select Color:</span>
                             <div className="flex items-center mt-2">
                                 {product.colors.map((color, index) => (
@@ -70,8 +71,8 @@ const SingleProductPage = () => {
                                     ></button>
                                 ))}
                             </div>
-                        </div>
-                        <div className="mb-4">
+                        </div> */}
+                        {/* <div className="mb-4">
                             <span className="font-bold text-gray-700 dark:text-gray-300">Select Size:</span>
                             <div className="flex items-center mt-2">
                                 {product.sizes.map((size, index) => (
@@ -83,7 +84,7 @@ const SingleProductPage = () => {
                                     </button>
                                 ))}
                             </div>
-                        </div>
+                        </div> */}
                         <div>
                             <span className="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
                             <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
