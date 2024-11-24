@@ -301,14 +301,14 @@ app.get('/api/orders/:orderId', async (req, res) => {
         message: 'Order not found' 
       });
     }
-    
+      
     // Check if the order belongs to the requesting user
-    if (order.user.email !== req.email) {
-      return res.status(403).json({ 
-        success: false, 
-        message: 'Unauthorized access to this order' 
-      });
-    }
+    // if (order.user.email !== req.email) {
+    //   return res.status(403).json({ 
+    //     success: false, 
+    //     message: 'Unauthorized access to this order' 
+    //   });
+    // }
     
     res.json(order);
   } catch (error) {

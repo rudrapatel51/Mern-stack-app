@@ -25,14 +25,19 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<UserDashboard />} />
+           
+          <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/products/:id" element={<SingleProductPage />} />
+            <Route path="/checkout" element={<CheckOut />} />
+            {/* <Route path="*" element={<NoPage />} /> */}
+          </Route>
+        </Routes>
+        <Routes>
+          <Route>
             <Route path="/admin/register" element={<AdminRegister />} />
             <Route path="/admin/login" element={<AdminLogin />} />
             <Route path="/admin/dashboard" element={<AdminDashboard />} />
             <Route path="/admin/orders" element={<AdminOrder />} />
-            <Route path="/products/:id" element={<SingleProductPage />} />
-            <Route path="/checkout" element={<CheckOut />} />
-            {/* <Route path="*" element={<NoPage />} /> */}
           </Route>
         </Routes>
       </CartProvider>

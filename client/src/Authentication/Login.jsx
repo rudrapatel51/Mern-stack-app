@@ -1,4 +1,4 @@
-import axios from 'axios';
+import api from '../axios/axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,14 +8,14 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    axios.defaults.withCredentials = true;
+    api.defaults.withCredentials = true;
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/login", { email, password })
+        api.post("/login", { email, password })
             .then(res => {
                 if (res.data.login) {
-                    localStorage.setItem('accessToken', res.data.accessToken); // Store the token in localStorage
+                    localStorage.setItem('accessToken', res.data.accessToken); 
                     navigate('/');
                 } else {
                     console.error('Login failed:', res.data.message);
