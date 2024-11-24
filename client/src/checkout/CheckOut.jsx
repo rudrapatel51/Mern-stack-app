@@ -50,9 +50,9 @@ const CheckOut = () => {
       };
 
       const response = await axios.post('http://localhost:3001/api/orders', orderData, {
-        // headers: {
-        //   Authorization: `Bearer ${localStorage.getItem('token')}`, 
-        // },
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('accessToken')}`, 
+        },
       });
 
       setOrderSuccess(response.data);

@@ -38,52 +38,127 @@ mongoose.connect(process.env.MONGO_URI)
   .catch(err => console.error("MongoDB connection error:", err));
 
 // Register route for student
-app.post('/register', (req, res) => {
-    const { name, email, password } = req.body;
-    StudentModel.create({ name, email, password })
-        .then(user => res.json(user))
-        .catch(err => res.status(500).json({ error: err.message }));
+app.post('/register', async (req, res) => {
+  const { name, email, password } = req.body;
+
+  try {
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const user = await StudentModel.create({
+          name,
+          email,
+          password: hashedPassword, 
+      });
+
+      res.json({ message: "User registered successfully", user });
+  } catch (error) {
+      console.error("Error during registration:", error.message);
+      res.status(500).json({ error: error.message });
+  }
 });
+
+const hashExistingPasswords = async () => {
+  try {
+      // Fetch all users
+      const users = await StudentModel.find();
+
+      for (const user of users) {
+          // Skip users whose passwords are already hashed
+          if (!user.password.startsWith('$2b$')) {
+              const hashedPassword = await bcrypt.hash(user.password, 10);
+              user.password = hashedPassword;
+              await user.save();
+              console.log(`Password for ${user.email} has been hashed.`);
+          }
+      }
+
+      console.log("All plain text passwords have been updated.");
+  } catch (error) {
+      console.error("Error updating passwords:", error.message);
+  } finally {
+      mongoose.connection.close();
+  }
+};
 
 // Login route for student
 app.post('/login', (req, res) => {
-    const { email, password } = req.body;
-    StudentModel.findOne({ email })
-        .then(user => {
-            if (user && user.password === password) {
-                const accessToken = jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, { expiresIn: "2h" });
-                const refreshToken = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET, { expiresIn: "2h" });
+  const { email, password } = req.body;
+  console.log(`Attempting login for email: ${email}`);
 
-                // Send accessToken in response body instead of setting a cookie
-                return res.json({
-                    login: true,
-                    accessToken, // Include accessToken in the response body
-                    refreshToken // Optionally include refreshToken if needed
-                });
-            } else {
-                return res.status(401).json({ login: false, message: "Invalid credentials" });
-            }
-        })
-        .catch(err => res.status(500).json({ error: err.message }));
+  StudentModel.findOne({ email })
+      .then(user => {
+          if (!user) {
+              console.error("User not found");
+              return res.status(401).json({ login: false, message: "Invalid credentials" });
+          }
+
+          bcrypt.compare(password, user.password, (err, isMatch) => {
+              if (err) {
+                  console.error("Error comparing passwords", err);
+                  return res.status(500).json({ error: err.message });
+              }
+
+              if (isMatch) {
+                  console.log("Password matched, generating tokens...");
+                  const accessToken = jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, { expiresIn: "2h" });
+                  const refreshToken = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" });
+
+                  return res.json({ login: true, accessToken, refreshToken });
+              } else {
+                  console.error("Password mismatch");
+                  return res.status(401).json({ login: false, message: "Invalid credentials" });
+              }
+          });
+      })
+      .catch(err => {
+          console.error("Error during login", err);
+          res.status(500).json({ error: err.message });
+      });
 });
 
+
 const verifyUser = (req, res, next) => {
-    const authHeader = req.headers['authorization'];
-    const accessToken = authHeader && authHeader.split(' ')[1]; // Extract the token part
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
 
-    if (!accessToken) {
-        return res.status(401).json({ valid: false, message: "No access token provided" });
-    }
+  if (!token) {
+      return res.status(401).json({ valid: false, message: "No access token provided" });
+  }
 
-    jwt.verify(accessToken, process.env.JWT_ACCESS_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ valid: false, message: "Invalid Token" });
-        } else {
-            req.email = decoded.email;
-            next();
-        }
-    });
+  jwt.verify(token, process.env.JWT_ACCESS_SECRET, async (err, decoded) => {
+      if (err) {
+          return res.status(403).json({ valid: false, message: "Invalid or expired token" });
+      }
+      try {
+          // Find the user and attach their ID to the request
+          const user = await StudentModel.findOne({ email: decoded.email });
+          if (!user) {
+              return res.status(404).json({ valid: false, message: "User not found" });
+          }
+          req.userId = user._id; // Attach user ID
+          req.email = decoded.email; // Keep email for backward compatibility
+          next();
+      } catch (error) {
+          return res.status(500).json({ valid: false, message: "Error verifying user" });
+      }
+  });
 };
+
+app.post('/token', (req, res) => {
+  const { refreshToken } = req.body;
+
+  if (!refreshToken) {
+      return res.status(401).json({ valid: false, message: "No refresh token provided" });
+  }
+
+  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, decoded) => {
+      if (err) {
+          return res.status(403).json({ valid: false, message: "Invalid or expired refresh token" });
+      }
+
+      const accessToken = jwt.sign({ email: decoded.email }, process.env.JWT_ACCESS_SECRET, { expiresIn: "2h" });
+      return res.json({ valid: true, accessToken });
+  });
+});
 
 
 // Function to renew access token using the refresh token
@@ -216,107 +291,117 @@ app.get('/products/:id', async (req, res) => {
     }
 });
 
-
-app.post('/api/orders', async (req, res) => {
+app.post('/api/orders', verifyUser, async (req, res) => {
   try {
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      address,
-      apartment,
-      city,
-      state,
-      zipCode,
-      items,
-      paymentMethod,
-      shippingMethod,
-      subtotal,
-      totalAmount
-    } = req.body;
+      const {
+          firstName,
+          lastName,
+          email,
+          phone,
+          address,
+          apartment,
+          city,
+          state,
+          zipCode,
+          items,
+          paymentMethod,
+          shippingMethod,
+          subtotal,
+          totalAmount
+      } = req.body;
 
-    // Calculate shipping cost based on shipping method
-    const shippingCost = shippingMethod === 'express' ? 15 : 0;
+      const shippingCost = shippingMethod === 'express' ? 15 : 0;
 
-    const newOrder = new Order({
-      user: {
-        email,
-        firstName,
-        lastName,
-        phone
-      },
-      shippingAddress: {
-        address,
-        apartment,
-        city,
-        state,
-        zipCode
-      },
-      items,
-      paymentMethod,
-      shippingMethod,
-      subtotal,
-      shippingCost,
-      totalAmount,
-    });
+      const newOrder = new Order({
+          userId: req.userId, // Add the user ID reference
+          user: {
+              email,
+              firstName,
+              lastName,
+              phone
+          },
+          shippingAddress: {
+              address,
+              apartment,
+              city,
+              state,
+              zipCode
+          },
+          items,
+          paymentMethod,
+          shippingMethod,
+          subtotal,
+          shippingCost,
+          totalAmount,
+          status: 'pending' // Add default status
+      });
 
-    await newOrder.save();
-    res.status(201).json({ 
-      success: true, 
-      message: 'Order created successfully', 
-      orderId: newOrder._id 
-    });
+      await newOrder.save();
+      res.status(201).json({
+          success: true,
+          message: 'Order created successfully',
+          orderId: newOrder._id
+      });
   } catch (error) {
-    res.status(400).json({ 
-      success: false, 
-      message: 'Error creating order', 
-      error: error.message 
-    });
+      res.status(400).json({
+          success: false,
+          message: 'Error creating order',
+          error: error.message
+      });
   }
 });
 
 // Get all orders for a specific user
-app.get('/api/orders', async (req, res) => {
+app.get('/api/orders', verifyUser, async (req, res) => {
   try {
-    const orders = await Order.find({ 'user.email': req.email })
-      .sort({ createdAt: -1 });
-    res.json(orders);
+      const orders = await Order.find({
+          $or: [
+              { userId: req.userId }, 
+              { 'user.email': req.email } 
+          ]
+      }).sort({ createdAt: -1 });
+
+      res.json({
+          success: true,
+          orders
+      });
   } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error fetching orders', 
-      error: error.message 
-    });
+      res.status(500).json({
+          success: false,
+          message: 'Error fetching orders',
+          error: error.message
+      });
   }
 });
 
 // Get a specific order by ID
-app.get('/api/orders/:orderId', async (req, res) => {
+app.get('/api/orders/:orderId', verifyUser, async (req, res) => {
   try {
-    const order = await Order.findById(req.params.orderId);
-    if (!order) {
-      return res.status(404).json({ 
-        success: false, 
-        message: 'Order not found' 
+      const order = await Order.findOne({
+          _id: req.params.orderId,
+          $or: [
+              { userId: req.userId },
+              { 'user.email': req.email }
+          ]
       });
-    }
-      
-    // Check if the order belongs to the requesting user
-    // if (order.user.email !== req.email) {
-    //   return res.status(403).json({ 
-    //     success: false, 
-    //     message: 'Unauthorized access to this order' 
-    //   });
-    // }
-    
-    res.json(order);
+
+      if (!order) {
+          return res.status(404).json({
+              success: false,
+              message: 'Order not found or unauthorized access'
+          });
+      }
+
+      res.json({
+          success: true,
+          order
+      });
   } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error fetching order', 
-      error: error.message 
-    });
+      res.status(500).json({
+          success: false,
+          message: 'Error fetching order',
+          error: error.message
+      });
   }
 });
 
@@ -347,7 +432,7 @@ app.patch('/api/admin/orders/:orderId/status', async (req, res) => {
       },
       { new: true }
     );
-    
+
     if (!order) {
       return res.status(404).json({ 
         success: false, 

@@ -16,6 +16,7 @@ const Login = () => {
             .then(res => {
                 if (res.data.login) {
                     localStorage.setItem('accessToken', res.data.accessToken); 
+                    localStorage.setItem('refreshToken', res.data.refreshToken);
                     navigate('/');
                 } else {
                     console.error('Login failed:', res.data.message);
