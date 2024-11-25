@@ -57,6 +57,7 @@ const CheckOut = () => {
 
       setOrderSuccess(response.data);
       console.log('Order Created:', response.data);
+      localStorage.removeItem("cart")
     } catch (error) {
       console.error('Error creating order:', error.response?.data || error.message);
     }
