@@ -18,6 +18,7 @@ const AdminDashboard = () => {
     useEffect(() => {
         const fetchDashboardData = async () => {
             const token = localStorage.getItem('adminToken');
+            console.log(token)
             if (!token) {
                 navigate('/admin/login');
                 return;
@@ -28,7 +29,6 @@ const AdminDashboard = () => {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setMessage(response.data.message);
-                // In a real application, you would set the stats from the API response
                 setStats({
                     totalOrders: 150,
                     totalProducts: 75,

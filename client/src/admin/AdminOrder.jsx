@@ -16,7 +16,7 @@ const AdminOrder = () => {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/admin/orders', {
+      const response = await fetch('http://localhost:3001/api/orders', {
         // headers: {
         //   Authorization: `Bearer ${localStorage.getItem('token')}`,
         // },
@@ -34,7 +34,7 @@ const AdminOrder = () => {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      const response = await fetch(`http://localhost:3001/api/admin/orders/${orderId}/status`, {
+      const response = await fetch(`http://localhost:3001/api/orders/${orderId}/status`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',

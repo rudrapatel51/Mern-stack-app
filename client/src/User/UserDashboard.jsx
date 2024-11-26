@@ -34,7 +34,7 @@ const UserDashboard = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         
         // Fetch user data
-        const userResponse = await axios.get("http://localhost:3001/user");
+        const userResponse = await axios.get("http://localhost:3001/auth/user");
         if (!userResponse.data.valid) {
           throw new Error('User not authenticated');
         }
@@ -67,7 +67,7 @@ const UserDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3001/logout', {}, { withCredentials: true });
+      await axios.post('http://localhost:3001/auth/logout', {}, { withCredentials: true });
       localStorage.removeItem('accessToken');
       navigate('/login');
     } catch (error) {

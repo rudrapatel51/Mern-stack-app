@@ -11,7 +11,7 @@ const Register = () => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:3001/register", { name, email, password })
+        axios.post("http://localhost:3001/auth/register", { name, email, password })
             .then(res => {
                 if (res.data.user && res.data.user._id) {
                     navigate('/login')
