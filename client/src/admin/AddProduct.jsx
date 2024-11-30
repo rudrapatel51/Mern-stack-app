@@ -21,13 +21,26 @@ const AddProduct = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/products', product);
+            const accessToken = localStorage.getItem('adminToken');
+    
+            const response = await axios.post(
+                'http://localhost:3001/products',
+                product,
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`,
+                    },
+                }
+            );
+    
             alert('Product added successfully!');
             setProduct({ name: '', description: '', price: 0, category: '', imageUrl: '' });
         } catch (error) {
             alert('Failed to add product.');
+            console.error(error);
         }
     };
+    
 
     return (
         <div className="grid gap-8">

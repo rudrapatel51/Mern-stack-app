@@ -12,9 +12,9 @@ const AdminLogin = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:3001/admin/login', { username, password }, { withCredentials: true });
-            if (response.data.success) {
-                localStorage.setItem('adminToken', response.data.token);
-                console.log(response.token)
+            if (response.data) {
+                localStorage.setItem('adminToken', response.data.adminToken);
+                console.log(response.data.adminToken)
                 navigate('/admin/dashboard');
             } else {
                 setMessage(response.data.message);

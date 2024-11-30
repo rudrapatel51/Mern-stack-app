@@ -16,10 +16,10 @@ const AdminOrder = () => {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:3001/api/orders', {
-        // headers: {
-        //   Authorization: `Bearer ${localStorage.getItem('token')}`,
-        // },
+      const response = await fetch('http://localhost:3001/api/admin/orders', {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('adminToken')}`,
+        },
       });
       const data = await response.json();
       setOrders(data);

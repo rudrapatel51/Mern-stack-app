@@ -56,28 +56,6 @@ app.post('/register', async (req, res) => {
   }
 });
 
-const hashExistingPasswords = async () => {
-  try {
-      // Fetch all users
-      const users = await StudentModel.find();
-
-      for (const user of users) {
-          // Skip users whose passwords are already hashed
-          if (!user.password.startsWith('$2b$')) {
-              const hashedPassword = await bcrypt.hash(user.password, 10);
-              user.password = hashedPassword;
-              await user.save();
-              console.log(`Password for ${user.email} has been hashed.`);
-          }
-      }
-
-      console.log("All plain text passwords have been updated.");
-  } catch (error) {
-      console.error("Error updating passwords:", error.message);
-  } finally {
-      mongoose.connection.close();
-  }
-};
 
 // Login route for student
 app.post('/login', (req, res) => {
@@ -256,7 +234,7 @@ app.post('/logout', (req, res) => {
 });
 
 // Create a new product
-app.post('/products', async (req, res) => {
+app.post('/products', verifyAdmin, async (req, res) => {
     const { name, description, price, category, imageUrl } = req.body;
     try {
         const newProduct = new Product({ name, description, price, category, imageUrl });
@@ -291,6 +269,23 @@ app.get('/products/:id', async (req, res) => {
     }
 });
 
+// delete the product by admin 
+// Delete a product by ID
+app.delete('/products/:id', verifyAdmin, async (req, res) => {
+    const { id } = req.params;
+    try {
+        const product = await Product.findByIdAndDelete(id);
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+        res.status(200).json({ message: 'Product deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+
+
 app.post('/api/orders', verifyUser, async (req, res) => {
   try {
       const {
@@ -313,7 +308,7 @@ app.post('/api/orders', verifyUser, async (req, res) => {
       const shippingCost = shippingMethod === 'express' ? 15 : 0;
 
       const newOrder = new Order({
-          userId: req.userId, // Add the user ID reference
+          userId: req.userId, 
           user: {
               email,
               firstName,
