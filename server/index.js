@@ -11,6 +11,7 @@ import * as dotenv from 'dotenv';
 import logger from "./config/logger.js";
 import { requestLogger } from "./middleware/loggerMiddleware.js";
 import Order from './models/Order.js';
+
 dotenv.config();
 
 const app = express();
@@ -55,7 +56,6 @@ app.post('/register', async (req, res) => {
       res.status(500).json({ error: error.message });
   }
 });
-
 
 // Login route for student
 app.post('/login', (req, res) => {
@@ -269,8 +269,29 @@ app.get('/products/:id', async (req, res) => {
     }
 });
 
+// product edit route
+app.put('/products/:id', verifyAdmin, async (req, res) => {
+    const { id } = req.params;
+    const { name, description, price, imageUrl, category } = req.body;
+
+    try {
+        const updatedProduct = await Product.findByIdAndUpdate(
+            id, 
+            { name, description, price, imageUrl, category },
+            { new: true } // This ensures the updated document is returned
+        );
+
+        if (!updatedProduct) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        res.status(200).json(updatedProduct);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
 // delete the product by admin 
-// Delete a product by ID
 app.delete('/products/:id', verifyAdmin, async (req, res) => {
     const { id } = req.params;
     try {

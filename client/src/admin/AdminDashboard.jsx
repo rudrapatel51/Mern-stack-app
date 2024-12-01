@@ -3,8 +3,10 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AddProduct from "./AddProduct";
 import AdminOrder from './AdminOrder';
+import EditProduct from "./EditProduct"
 
 const AdminDashboard = () => {
+    const [selectedProduct, setSelectedProduct] = useState(null);
     const [message, setMessage] = useState('');
     const [activeTab, setActiveTab] = useState('dashboard');
     const [stats, setStats] = useState({
@@ -13,28 +15,42 @@ const AdminDashboard = () => {
         totalRevenue: 0,
         pendingOrders: 0
     });
+    const [products, setProducts] = useState([]);
     const navigate = useNavigate();
+
+    // updating the product by id
+    const handleUpdateProduct = (updatedProduct) => {
+        setProducts(products.map(product => 
+            product._id === updatedProduct._id ? updatedProduct : product
+        ));
+    };
 
     useEffect(() => {
         const fetchDashboardData = async () => {
             const token = localStorage.getItem('adminToken');
-            console.log(token)
             if (!token) {
                 navigate('/admin/login');
                 return;
             }
 
             try {
-                const response = await axios.get('/admin/dashboard', {
+                // Fetch dashboard stats
+                const dashboardResponse = await axios.get('/admin/dashboard', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
-                setMessage(response.data.message);
+                setMessage(dashboardResponse.data.message);
                 setStats({
                     totalOrders: 150,
                     totalProducts: 75,
                     totalRevenue: 25000,
                     pendingOrders: 12
                 });
+
+                // Fetch products
+                const productsResponse = await axios.get('http://localhost:3001/products', {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                setProducts(productsResponse.data);
             } catch (error) {
                 localStorage.removeItem('adminToken');
                 navigate('/admin/login');
@@ -44,10 +60,28 @@ const AdminDashboard = () => {
         fetchDashboardData();
     }, [navigate]);
 
+
+    
+
+    const handleDeleteProduct = async (productId) => {
+        const token = localStorage.getItem('adminToken');
+        try {
+            await axios.delete(`http://localhost:3001/products/${productId}`, {
+                headers: { Authorization: `Bearer ${token}` }
+            });
+            // Remove the deleted product from the state
+            setProducts(products.filter(product => product._id !== productId));
+        } catch (error) {
+            console.error('Error deleting product:', error);
+            alert('Failed to delete product');
+        }
+    };
+
     const handleLogout = () => {
         localStorage.removeItem('adminToken');
         navigate('/admin/login');
     };
+    
 
     return (
         <div className="min-h-screen bg-gray-100">
@@ -137,7 +171,42 @@ const AdminDashboard = () => {
 
                     {activeTab === 'products' && (
                         <div className="bg-white rounded-lg shadow p-6">
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                {products.map((product) => (
+                                    <div key={product._id} className="border rounded-lg p-4 shadow-sm">
+                                        <img 
+                                            src={product.imageUrl} 
+                                            alt={product.name} 
+                                            className="w-full h-48 object-cover rounded-t-lg mb-4"
+                                        />
+                                        <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+                                        <p className="text-gray-600 mb-2">{product.description}</p>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-xl font-bold text-gray-900">₹{product.price}</span>
+                                            <button 
+                                            onClick={() => setSelectedProduct(product)}
+                                            className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
+                                        >
+                                            Edit
+                                        </button>
+                                            <button 
+                                                onClick={() => handleDeleteProduct(product._id)}
+                                                className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                             <AddProduct />
+                            {selectedProduct && (
+                        <EditProduct
+                            product={selectedProduct}
+                            onClose={() => setSelectedProduct(null)}
+                            onUpdate={handleUpdateProduct}
+                        />
+                    )}
                         </div>
                     )}
 
