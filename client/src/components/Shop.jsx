@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { addToCart } from '../cart/redux/cartSlice';
 import Cart from '../cart/Cart';
 import { useNavigate } from 'react-router-dom';
+import api from '../axios/axios';
 
 const Shop = () => {
   const [products, setProducts] = useState([]);
@@ -10,11 +11,16 @@ const Shop = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:3001/products")
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
+    const fetchProducts = async () => {
+      try {
+        const response = await api.get("http://localhost:3001/products");
+        setProducts(response.data);
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchProducts();
   }, []);
 
   const handleAddToCart = (product) => {

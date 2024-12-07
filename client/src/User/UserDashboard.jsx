@@ -34,7 +34,7 @@ const UserDashboard = () => {
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         
         // Fetch user data
-        const userResponse = await axios.get("http://localhost:3001/auth/user");
+        const userResponse = await axios.get("http://localhost:3001/user");
         if (!userResponse.data.valid) {
           throw new Error('User not authenticated');
         }

@@ -6,14 +6,16 @@ const initialState = {
   totalQuantity: 0,
 };
 
-// saving all cart in localstorage
 const loadCartFromStorage = () => {
   try {
     const cartData = localStorage.getItem('cart');
-    return cartData ? JSON.parse(cartData) : {
-      cartItems: [],
-      totalAmount: 0,
-      totalQuantity: 0,
+    const parsedData = cartData ? JSON.parse(cartData) : null;
+
+    // Ensure we return an object with the correct structure
+    return {
+      cartItems: parsedData?.cartItems || [],
+      totalAmount: parsedData?.totalAmount || 0,
+      totalQuantity: parsedData?.totalQuantity || 0,
     };
   } catch (error) {
     console.error('Error loading cart from localStorage:', error);

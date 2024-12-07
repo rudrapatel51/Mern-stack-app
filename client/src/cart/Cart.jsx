@@ -5,7 +5,8 @@ import { removeFromCart, updateQuantity } from '../cart/redux/cartSlice';
 import { useCart } from '../context/CartContext';
 
 const Cart = () => {
-  const { cartItems, totalAmount, totalQuantity } = useSelector(state => state.cart);
+  const { cartItems = [], totalAmount, totalQuantity } = useSelector(state => state.cart);
+  console.log(cartItems)
   const dispatch = useDispatch();
   const { isCartOpen, closeCart } = useCart();
 
@@ -21,7 +22,7 @@ const Cart = () => {
   };
 
   return (
-    <div className={`fixed inset-0 z-10 overflow-hidden ${isCartOpen ? 'block' : 'hidden'}`}>
+    <section className={`fixed inset-0 z-10 overflow-hidden ${isCartOpen ? 'block' : 'hidden'}`}>
       <div className="fixed inset-0 bg-gray-500 bg-opacity-75" onClick={closeCart} />
 
       <div className="absolute inset-0 overflow-hidden">
@@ -98,7 +99,7 @@ const Cart = () => {
               <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
                 <div className="flex justify-between text-base font-medium text-gray-900">
                   <p>Subtotal</p>
-                  <p>${totalAmount.toFixed(2)}</p>
+                  {/* <p>${totalAmount.toFixed(2)}</p> */}
                 </div>
                 <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div className="mt-6">
@@ -126,7 +127,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -12,7 +12,7 @@ const Login = () => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        api.post("/auth/login", { email, password })
+        api.post("/login", { email, password })
             .then(res => {
                 if (res.data.login) {
                     localStorage.setItem('accessToken', res.data.accessToken); 
