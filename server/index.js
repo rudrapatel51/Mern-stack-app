@@ -11,6 +11,9 @@ import * as dotenv from 'dotenv';
 import logger from "./config/logger.js";
 import { requestLogger } from "./middleware/loggerMiddleware.js";
 import Order from './models/Order.js';
+import  {UserRegister, UserLogin, UserDetails } from "./routes/userRoutes.js"
+import { verifyUser } from "./middleware/authMiddleware.js";
+import { AdminLogin, AdminRegister } from "./routes/adminRoutes.js";
 
 dotenv.config();
 
@@ -24,8 +27,9 @@ app.use(cors({
 
 app.use(requestLogger); 
 
+app.use('/register',UserRegister)
+app.use('/login',UserLogin)
 
-// Enhanced logging setup (consider using a library like 'winston' or 'morgan')
 const logLevel = process.env.LOG_LEVEL || 'info';
 if (logLevel === 'debug') {
     console.debug('Debugging information');
@@ -38,88 +42,7 @@ mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 
-// Register route for student
-app.post('/register', async (req, res) => {
-  const { name, email, password } = req.body;
-
-  try {
-      const hashedPassword = await bcrypt.hash(password, 10);
-      const user = await StudentModel.create({
-          name,
-          email,
-          password: hashedPassword, 
-      });
-
-      res.json({ message: "User registered successfully", user });
-  } catch (error) {
-      console.error("Error during registration:", error.message);
-      res.status(500).json({ error: error.message });
-  }
-});
-
-// Login route for student
-app.post('/login', (req, res) => {
-  const { email, password } = req.body;
-  console.log(`Attempting login for email: ${email}`);
-
-  StudentModel.findOne({ email })
-      .then(user => {
-          if (!user) {
-              console.error("User not found");
-              return res.status(401).json({ login: false, message: "Invalid credentials" });
-          }
-
-          bcrypt.compare(password, user.password, (err, isMatch) => {
-              if (err) {
-                  console.error("Error comparing passwords", err);
-                  return res.status(500).json({ error: err.message });
-              }
-
-              if (isMatch) {
-                  console.log("Password matched, generating tokens...");
-                  const accessToken = jwt.sign({ email }, process.env.JWT_ACCESS_SECRET, { expiresIn: "2h" });
-                  const refreshToken = jwt.sign({ email }, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" });
-
-                  return res.json({ login: true, accessToken, refreshToken });
-              } else {
-                  console.error("Password mismatch");
-                  return res.status(401).json({ login: false, message: "Invalid credentials" });
-              }
-          });
-      })
-      .catch(err => {
-          console.error("Error during login", err);
-          res.status(500).json({ error: err.message });
-      });
-});
-
-
-const verifyUser = (req, res, next) => {
-  const authHeader = req.headers['authorization'];
-  const token = authHeader && authHeader.split(' ')[1];
-
-  if (!token) {
-      return res.status(401).json({ valid: false, message: "No access token provided" });
-  }
-
-  jwt.verify(token, process.env.JWT_ACCESS_SECRET, async (err, decoded) => {
-      if (err) {
-          return res.status(403).json({ valid: false, message: "Invalid or expired token" });
-      }
-      try {
-          // Find the user and attach their ID to the request
-          const user = await StudentModel.findOne({ email: decoded.email });
-          if (!user) {
-              return res.status(404).json({ valid: false, message: "User not found" });
-          }
-          req.userId = user._id; // Attach user ID
-          req.email = decoded.email; // Keep email for backward compatibility
-          next();
-      } catch (error) {
-          return res.status(500).json({ valid: false, message: "Error verifying user" });
-      }
-  });
-};
+app.use('/user',verifyUser,UserDetails)
 
 app.post('/token', (req, res) => {
   const { refreshToken } = req.body;
@@ -139,7 +62,6 @@ app.post('/token', (req, res) => {
 });
 
 
-// Function to renew access token using the refresh token
 const renewToken = (req, res) => {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) {
@@ -158,57 +80,45 @@ const renewToken = (req, res) => {
     }
 };
 
-// Route to get user information
-app.get('/user', verifyUser, (req, res) => {
-    const email = req.email;
-    StudentModel.findOne({ email })
-        .then(user => {
-            if (user) {
-                return res.json({ valid: true, user });
-            } else {
-                return res.status(404).json({ valid: false, message: "User not found" });
-            }
-        })
-        .catch(err => res.status(500).json({ error: err.message }));
-});
+app.use('/admin/register',AdminRegister)
 
+app.use('/admin/login',AdminLogin)
 
-// Admin registration route
-app.post('/admin/register', async (req, res) => {
-    const { username, password } = req.body;
-    try {
-        const adminExists = await Admin.findOne({ username });
-        if (adminExists) {
-            return res.status(400).json({ message: 'Admin already exists' });
-        }
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const newAdmin = new Admin({ username, password: hashedPassword });
-        await newAdmin.save();
-        res.status(201).json({ message: 'Admin registered successfully' });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+// // app.post('/admin/register', async (req, res) => {
+// //     const { username, password } = req.body;
+// //     try {
+// //         const adminExists = await Admin.findOne({ username });
+// //         if (adminExists) {
+// //             return res.status(400).json({ message: 'Admin already exists' });
+// //         }
+// //         const hashedPassword = await bcrypt.hash(password, 10);
+// //         const newAdmin = new Admin({ username, password: hashedPassword });
+// //         await newAdmin.save();
+// //         res.status(201).json({ message: 'Admin registered successfully' });
+// //     } catch (error) {
+// //         res.status(500).json({ error: error.message });
+// //     }
+// // });
 
-// Admin login route
-app.post('/admin/login', async (req, res) => {
-    const { username, password } = req.body;
-    try {
-        const admin = await Admin.findOne({ username });
-        if (!admin) {
-            return res.status(401).json({ login: false, message: 'Invalid admin credentials' });
-        }
-        const passwordMatch = await bcrypt.compare(password, admin.password);
-        if (!passwordMatch) {
-            return res.status(401).json({ login: false, message: 'Invalid admin credentials' });
-        }
-        const adminToken = jwt.sign({ username: admin.username }, process.env.JWT_ADMIN_SECRET, { expiresIn: '2h' });
-        res.cookie('adminToken', adminToken, { httpOnly: true, secure: true, maxAge: 2 * 60 * 60 * 1000 });
-        return res.json({ login: true, adminToken });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+// // // Admin login route
+// // app.post('/admin/login', async (req, res) => {
+// //     const { username, password } = req.body;
+// //     try {
+// //         const admin = await Admin.findOne({ username });
+// //         if (!admin) {
+// //             return res.status(401).json({ login: false, message: 'Invalid admin credentials' });
+// //         }
+// //         const passwordMatch = await bcrypt.compare(password, admin.password);
+// //         if (!passwordMatch) {
+// //             return res.status(401).json({ login: false, message: 'Invalid admin credentials' });
+// //         }
+// //         const adminToken = jwt.sign({ username: admin.username }, process.env.JWT_ADMIN_SECRET, { expiresIn: '2h' });
+// //         res.cookie('adminToken', adminToken, { httpOnly: true, secure: true, maxAge: 2 * 60 * 60 * 1000 });
+// //         return res.json({ login: true, adminToken });
+// //     } catch (error) {
+// //         res.status(500).json({ error: error.message });
+// //     }
+// // });
 
 // Middleware to verify the admin
 const verifyAdmin = (req, res, next) => {

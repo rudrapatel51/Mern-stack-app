@@ -11274,3 +11274,1438 @@
   level: 'info',
   timestamp: '2024-12-07T18:00:33.183Z'
 }
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:14:52.446Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:16.954Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:17.023Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:17.028Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:17.035Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:20.412Z'
+}
+{
+  message: 'Response status: 403',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:20.420Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:20.426Z'
+}
+{
+  message: 'Response status: 403',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:20.431Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:28.881Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:28.917Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:36.123Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:36.217Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:42.482Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:42.573Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.468Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.488Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.491Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.511Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.517Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.572Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.575Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:45.583Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:53.316Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:53.327Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:53.330Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:15:53.338Z'
+}
+{
+  message: 'Incoming request: POST /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:14.158Z'
+}
+{
+  message: 'Response status: 201',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:14.224Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:24.098Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:24.107Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:24.110Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:24.118Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.785Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.798Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.801Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.811Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.819Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.831Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.835Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:26.843Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.669Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.773Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.855Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.874Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.878Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.890Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.924Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.929Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.931Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:44.937Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:49.062Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:49.092Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:49.094Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:49.109Z'
+}
+{
+  message: 'Incoming request: PATCH /api/orders/675d851ee8b38350dc1057c2/status',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:52.112Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:52.119Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.818Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.910Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.958Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.978Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.982Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:58.987Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:59.007Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:59.011Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:59.014Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:16:59.020Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:01.757Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:01.771Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:01.773Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:01.784Z'
+}
+{
+  message: 'Incoming request: GET /api/orders/675d851ee8b38350dc1057c2',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:03.602Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:03.607Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.231Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.249Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.252Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.269Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.393Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.401Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.405Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:17:05.411Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:18:46.852Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:18:58.509Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:19:01.152Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:19:05.556Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:46.673Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.625Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.668Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.671Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.683Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.740Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.771Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.774Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:54.789Z'
+}
+{
+  message: 'Incoming request: POST /auth/logout',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:56.208Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:22:56.214Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:03.975Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:03.978Z'
+}
+{
+  message: 'Incoming request: POST /auth/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:19.339Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:19.344Z'
+}
+{
+  message: 'Incoming request: POST /auth/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:20.444Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:20.449Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:23:42.285Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:24:48.567Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:24:50.706Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:24:52.112Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:24:54.917Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:25:26.727Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:25:32.062Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:25:34.986Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:00.189Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:02.077Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:02.214Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:12.193Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:12.284Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:16.368Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:16.459Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:20.988Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:26:21.076Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:14.249Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:14.349Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:15.266Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:15.370Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:15.480Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:15.621Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:19.537Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:19.645Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.263Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.366Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.446Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.550Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.672Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:20.776Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:25.481Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:25.570Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:34.502Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:27:34.590Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:30:39.715Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:30:40.418Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:30:40.520Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:30:56.451Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:30:56.609Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:31:38.216Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:31:57.717Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:31:57.830Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.657Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.675Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.678Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.696Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.705Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.724Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.727Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:01.742Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:13.401Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:32:19.239Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:09.282Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:10.262Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:10.286Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:10.294Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:10.306Z'
+}
+{
+  message: 'Incoming request: POST /login',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:21.005Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:21.184Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:23.395Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:23.403Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:23.411Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:34:23.426Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:37:17.602Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:01.056Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:05.636Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:05.650Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:05.657Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:05.663Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:12.110Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.310Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.408Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.530Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.536Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.564Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.568Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.609Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.748Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:23.763Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:40:49.273Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:46.688Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:48.902Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:50.324Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:54.911Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.231Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.293Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.301Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.317Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.681Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.720Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.725Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:41:56.742Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:42:15.616Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:42:35.556Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:42:53.626Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:43:57.361Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:44:31.292Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:48:22.927Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:49:29.075Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:49:39.852Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:50:33.133Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:50:58.538Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:05.532Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:16.679Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:16.686Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:33.029Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:33.032Z'
+}
+{
+  message: 'Incoming request: POST /admin/register',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:34.766Z'
+}
+{
+  message: 'Response status: 401',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:34.772Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:47.201Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:51:47.387Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:53:06.640Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:53:12.737Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:53:12.842Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:54:26.875Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:54:31.461Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:49.379Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.367Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.444Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.500Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.523Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.525Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.532Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.547Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.551Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.553Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:55:50.558Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:08.802Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:14.934Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:16.361Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:16.433Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:17.208Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:17.271Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:17.375Z'
+}
+{
+  message: 'Response status: 500',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:17.453Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:50.841Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:57:54.147Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:13.555Z'
+}
+{
+  message: 'Incoming request: POST /admin/login',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.413Z'
+}
+{
+  message: 'Response status: 200',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.487Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.532Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.556Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.558Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.561Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.566Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.576Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.578Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T13:58:15.583Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.336Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.348Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.350Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.361Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.425Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.430Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.432Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:17.437Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.776Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.790Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.791Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.798Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.844Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.849Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.851Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:18.856Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.860Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.868Z'
+}
+{
+  message: 'Incoming request: GET /api/admin/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.869Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.877Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.900Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.903Z'
+}
+{
+  message: 'Incoming request: GET /products',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.904Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:24.907Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.013Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.027Z'
+}
+{
+  message: 'Incoming request: GET /user',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.028Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.037Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.239Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.249Z'
+}
+{
+  message: 'Incoming request: GET /api/orders',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.251Z'
+}
+{
+  message: 'Response status: 304',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:31.258Z'
+}
+{
+  message: 'Incoming request: POST /auth/logout',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:35.049Z'
+}
+{
+  message: 'Response status: 404',
+  level: 'info',
+  timestamp: '2024-12-14T14:31:35.051Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T14:32:17.132Z'
+}
+{
+  message: 'Server is running on port 3001',
+  level: 'info',
+  timestamp: '2024-12-14T14:32:21.936Z'
+}
