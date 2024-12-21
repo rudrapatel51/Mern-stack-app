@@ -43,6 +43,7 @@ export const verifyAdmin = (req, res, next) => {
         }
     });
 };
+
 export const renewToken = (req, res) => {
     const refreshToken = req.cookies.refreshToken;
     if (!refreshToken) {

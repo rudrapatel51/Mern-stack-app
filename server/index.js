@@ -12,7 +12,7 @@ import logger from "./config/logger.js";
 import { requestLogger } from "./middleware/loggerMiddleware.js";
 import Order from './models/Order.js';
 import  {UserRegister, UserLogin, UserDetails } from "./routes/userRoutes.js"
-import { verifyUser } from "./middleware/authMiddleware.js";
+import { verifyUser ,verifyAdmin} from "./middleware/authMiddleware.js";
 import { AdminLogin, AdminRegister } from "./routes/adminRoutes.js";
 
 dotenv.config();
@@ -80,9 +80,9 @@ const renewToken = (req, res) => {
     }
 };
 
-app.use('/admin/register',AdminRegister)
+app.use('/admin/register',verifyAdmin,AdminRegister)
 
-app.use('/admin/login',AdminLogin)
+app.use('/admin/login',verifyAdmin,AdminLogin)
 
 // // app.post('/admin/register', async (req, res) => {
 // //     const { username, password } = req.body;
@@ -120,21 +120,7 @@ app.use('/admin/login',AdminLogin)
 // //     }
 // // });
 
-// Middleware to verify the admin
-const verifyAdmin = (req, res, next) => {
-    const adminToken = req.cookies.adminToken || req.headers['authorization']?.split(' ')[1];
-    if (!adminToken) {
-        return res.status(401).json({ valid: false, message: "No admin token provided" });
-    }
-    jwt.verify(adminToken, process.env.JWT_ADMIN_SECRET, (err, decoded) => {
-        if (err) {
-            return res.status(401).json({ valid: false, message: "Invalid admin token" });
-        } else {
-            req.admin = decoded.username;
-            next();
-        }
-    });
-};
+
 
 // Logout route
 app.post('/logout', (req, res) => {
@@ -301,15 +287,11 @@ app.get('/api/orders', verifyUser, async (req, res) => {
 });
 
 // Get a specific order by ID
-app.get('/api/orders/:orderId', verifyUser, async (req, res) => {
+app.get('/api/orders/:orderId', verifyAdmin, async (req, res) => {
   try {
-      const order = await Order.findOne({
-          _id: req.params.orderId,
-          $or: [
-              { userId: req.userId },
-              { 'user.email': req.email }
-          ]
-      });
+    const order = await Order.findById(req.params.orderId)
+    .populate('user', 'firstName lastName email') 
+    .lean();
 
       if (!order) {
           return res.status(404).json({
@@ -348,37 +330,37 @@ app.get('/api/admin/orders', async (req, res) => {
 
 // Admin route to update order status
 app.patch('/api/admin/orders/:orderId/status', async (req, res) => {
-  try {
-    const { status } = req.body;
-    const order = await Order.findByIdAndUpdate(
-      req.params.orderId,
-      { 
-        status,
-        updatedAt: Date.now()
-      },
-      { new: true }
-    );
-
-    if (!order) {
-      return res.status(404).json({ 
+    try {
+      const { status } = req.body;
+      const order = await Order.findByIdAndUpdate(
+        req.params.orderId,
+        { 
+          status,
+          updatedAt: Date.now()
+        },
+        { new: true }
+      );
+  
+      if (!order) {
+        return res.status(404).json({ 
+          success: false, 
+          message: 'Order not found' 
+        });
+      }
+      
+      res.json({ 
+        success: true, 
+        message: 'Order status updated successfully', 
+        order 
+      });
+    } catch (error) {
+      res.status(500).json({ 
         success: false, 
-        message: 'Order not found' 
+        message: 'Error updating order status', 
+        error: error.message 
       });
     }
-    
-    res.json({ 
-      success: true, 
-      message: 'Order status updated successfully', 
-      order 
-    });
-  } catch (error) {
-    res.status(500).json({ 
-      success: false, 
-      message: 'Error updating order status', 
-      error: error.message 
-    });
-  }
-});
+  });
 
 
 
