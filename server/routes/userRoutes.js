@@ -72,9 +72,12 @@ export const UserDetails = (req,res,next) => {
         .catch(err => res.status(500).json({ error: err.message }));
 }
 
-
-
-
+// Logout route
+export const logoutUser = (req,res) => {
+    res.clearCookie("accessToken");
+    res.clearCookie("refreshToken");
+    return res.json({ message: "Logged out successfully" });
+}
 
 
 
