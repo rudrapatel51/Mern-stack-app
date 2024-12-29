@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams , useNavigate} from 'react-router-dom';
 import { addToCart } from '../../cart/redux/cartSlice';
 import { useDispatch } from 'react-redux';
+import api from '../../axios/axios';
 
 const SingleProductPage = () => {
     const { id } = useParams();
@@ -10,11 +11,13 @@ const SingleProductPage = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:3001/products/${id}`)
-            .then((res) => res.json())
-            .then((data) => {
-                setProduct(data);
-                console.log(data)
+        api.get(`/products/${id}`)
+            .then((response) => {
+                setProduct(response.data);
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching product:", error);
             });
     }, [id]);
 

@@ -63,9 +63,9 @@ app.post('/token', (req, res) => {
 });
 
 
-app.use('/admin/register',verifyAdmin,AdminRegister)
+app.use('/admin/register',AdminRegister)
 
-app.use('/admin/login',verifyAdmin,AdminLogin)
+app.use('/admin/login',AdminLogin)
 
 //crete a product using admin panel
 app.post('/products',verifyAdmin,createProduct)

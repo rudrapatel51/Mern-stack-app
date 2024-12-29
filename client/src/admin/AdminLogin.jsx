@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from '../axios/axios';
 
 const AdminLogin = () => {
     const [username, setUsername] = useState('');
@@ -11,7 +12,7 @@ const AdminLogin = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3001/admin/login', { username, password }, { withCredentials: true });
+            const response = await api.post('/admin/login', { username, password }, { withCredentials: true });
             if (response.data) {
                 localStorage.setItem('adminToken', response.data.adminToken);
                 console.log(response.data.adminToken)

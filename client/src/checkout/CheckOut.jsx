@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import axios from 'axios';
-
+import api from "../axios/axios"
 const CheckOut = () => {
   const { cartItems, totalAmount } = useSelector(state => state.cart);
   console.log(cartItems)
@@ -49,7 +48,7 @@ const CheckOut = () => {
         totalAmount: formData.shippingMethod === 'express' ? totalAmount + 15 : totalAmount,
       };
 
-      const response = await axios.post('http://localhost:3001/api/orders', orderData, {
+      const response = await api.post('/api/orders', orderData, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('accessToken')}`, 
         },

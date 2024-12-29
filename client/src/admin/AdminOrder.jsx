@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import api from "../axios/axios";
 
 const AdminOrder = () => {
   const [orders, setOrders] = useState([]);
@@ -22,13 +23,11 @@ const AdminOrder = () => {
   const fetchOrders = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:3001/api/admin/orders", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-        },
-      });
-      const data = await response.json();
-      setOrders(data);
+      // Configure headers for admin token
+      api.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem("adminToken")}`;
+      
+      const response = await api.get("/api/admin/orders");
+      setOrders(response.data);
     } catch (error) {
       setError("Error fetching orders");
       console.error("Error:", error);
@@ -39,26 +38,12 @@ const AdminOrder = () => {
 
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/api/admin/orders/${orderId}/status`,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-          },
-          body: JSON.stringify({ status: newStatus }),
-        }
+      const response = await api.patch(
+        `/api/admin/orders/${orderId}/status`,
+        { status: newStatus }
       );
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.message || "Failed to update status");
-      }
-
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.data.success) {
         setOrders((prevOrders) =>
           prevOrders.map((order) =>
             order._id === orderId
@@ -74,7 +59,7 @@ const AdminOrder = () => {
         setTimeout(() => setSuccessMessage(""), 3000);
       }
     } catch (error) {
-      setError(error.message || "Error updating order status");
+      setError(error.response?.data?.message || "Error updating order status");
       console.error("Error:", error);
       setTimeout(() => setError(null), 3000);
     }
@@ -82,23 +67,14 @@ const AdminOrder = () => {
 
   const viewOrderDetails = async (orderId) => {
     try {
-      const response = await fetch(
-        `http://localhost:3001/api/orders/${orderId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
-          },
-        }
-      );
-      const data = await response.json();
-      setSelectedOrder(data.order);
+      const response = await api.get(`/api/orders/${orderId}`);
+      setSelectedOrder(response.data.order);
       setIsDetailModalOpen(true);
     } catch (error) {
       setError("Error fetching order details");
       console.error("Error:", error);
     }
   };
-
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString("en-US", {
       year: "numeric",

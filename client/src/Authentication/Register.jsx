@@ -11,7 +11,7 @@ const Register = () => {
 
     const handleSubmitForm = (e) => {
         e.preventDefault();
-        api.post("http://localhost:3001/register", { name, email, password })
+        api.post("/register", { name, email, password })
             .then(res => {
                 if (res.data.user && res.data.user._id) {
                     navigate('/login')

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import api from '../axios/axios';
 
 const UserDashboard = () => {
   const [user, setUser] = useState(null);
@@ -11,7 +12,6 @@ const UserDashboard = () => {
   
   axios.defaults.withCredentials = true;
 
-  // Status badge styles mapping
   const statusStyles = {
     pending: 'bg-yellow-100 text-yellow-800',
     processing: 'bg-blue-100 text-blue-800',
@@ -31,17 +31,16 @@ const UserDashboard = () => {
 
       try {
         // Configure axios defaults
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+        api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
         
-        // Fetch user data
-        const userResponse = await axios.get("http://localhost:3001/user");
+        const userResponse = await api.get("/user");
         if (!userResponse.data.valid) {
           throw new Error('User not authenticated');
         }
         setUser(userResponse.data.user);
           
         // Fetch orders with the new response structure
-        const ordersResponse = await axios.get("http://localhost:3001/api/orders");
+        const ordersResponse = await api.get("/api/orders");
         if (!ordersResponse.data.success) {
           throw new Error(ordersResponse.data.message || 'Failed to fetch orders');
         }
@@ -67,18 +66,16 @@ const UserDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3001/auth/logout', {}, { withCredentials: true });
+      await api.post('/auth/logout', {}, { withCredentials: true });
       localStorage.removeItem('accessToken');
       navigate('/login');
     } catch (error) {
       console.error("Logout failed:", error);
-      // Fallback: clear local storage and redirect anyway
       localStorage.removeItem('accessToken');
       navigate('/login');
     }
   };
 
-  // Helper function to format date
   const formatDate = (dateString) => {
     return new Date(dateString).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -89,7 +86,6 @@ const UserDashboard = () => {
     });
   };
 
-  // Helper function to format currency
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',

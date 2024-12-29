@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import AddProduct from "./AddProduct";
 import AdminOrder from './AdminOrder';
 import EditProduct from "./EditProduct"
+import api from '../axios/axios';
 
 const AdminDashboard = () => {
     const [selectedProduct, setSelectedProduct] = useState(null);
@@ -47,7 +48,7 @@ const AdminDashboard = () => {
                 });
 
                 // Fetch products
-                const productsResponse = await axios.get('http://localhost:3001/products', {
+                const productsResponse = await api.get('/products', {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setProducts(productsResponse.data);
@@ -66,7 +67,7 @@ const AdminDashboard = () => {
     const handleDeleteProduct = async (productId) => {
         const token = localStorage.getItem('adminToken');
         try {
-            await axios.delete(`http://localhost:3001/products/${productId}`, {
+            await api.delete(`/products/${productId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             // Remove the deleted product from the state
