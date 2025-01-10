@@ -7,7 +7,8 @@ const EditProduct = ({ product, onClose, onUpdate }) => {
         description: product.description,
         price: product.price,
         imageUrl: product.imageUrl,
-        category: product.category
+        category: product.category,
+        totalStock: product.totalStock, 
     });
 
     const handleChange = (e) => {
@@ -99,6 +100,17 @@ const EditProduct = ({ product, onClose, onUpdate }) => {
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
                             required
                         />
+                    <div className="mb-4">
+                        <label className="block text-gray-700 text-sm font-bold mb-2">Stock</label>
+                        <input
+                            type="number"
+                            name="totalStock"
+                            value={formData.totalStock}
+                            onChange={handleChange}
+                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700"
+                            required
+                        />
+                    </div>
                     </div>
                     <div className="flex justify-between">
                         <button 

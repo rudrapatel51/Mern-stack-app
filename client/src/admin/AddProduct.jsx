@@ -8,6 +8,7 @@ const AddProduct = () => {
         price: 0,
         category: '',
         imageUrl: '',
+        totalStock: 0, // Added field
     });
 
     const handleChange = (e) => {
@@ -22,7 +23,7 @@ const AddProduct = () => {
         e.preventDefault();
         try {
             const accessToken = localStorage.getItem('adminToken');
-    
+
             const response = await axios.post(
                 'http://localhost:3001/products',
                 product,
@@ -32,15 +33,14 @@ const AddProduct = () => {
                     },
                 }
             );
-    
+
             alert('Product added successfully!');
-            setProduct({ name: '', description: '', price: 0, category: '', imageUrl: '' });
+            setProduct({ name: '', description: '', price: 0, category: '', imageUrl: '', totalStock: 0 });
         } catch (error) {
             alert('Failed to add product.');
             console.error(error);
         }
     };
-    
 
     return (
         <div className="grid gap-8">
@@ -113,6 +113,18 @@ const AddProduct = () => {
                                     required
                                 />
                             </div>
+                            <div className="grid gap-2">
+                                <label className="font-bold" htmlFor="totalStock">Total Stock</label>
+                                <input
+                                    id="totalStock"
+                                    name="totalStock"
+                                    type="number"
+                                    value={product.totalStock}
+                                    onChange={handleChange}
+                                    placeholder="Stock Quantity"
+                                    required
+                                />
+                            </div>
                             <button type="submit" className="btn bg-blue-500 w-50">
                                 Add Product
                             </button>
@@ -120,7 +132,6 @@ const AddProduct = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     );
 };

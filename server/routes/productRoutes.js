@@ -1,9 +1,9 @@
 import Product from "../models/Product.js";
 
 export const createProduct = async (req,res) => {
-    const { name, description, price, category, imageUrl } = req.body;
+    const { name, description, price, category, imageUrl, totalStock } = req.body;
     try {
-        const newProduct = new Product({ name, description, price, category, imageUrl });
+        const newProduct = new Product({ name, description, price, category, imageUrl , totalStock,});
         await newProduct.save();
         res.status(201).send(newProduct);
     } catch (error) {
@@ -48,13 +48,13 @@ export const deleteProduct = async (req,res) => {
 
 export const editProduct = async (req,res) => {
         const { id } = req.params;
-        const { name, description, price, imageUrl, category } = req.body;
+        const { name, description, price, imageUrl, category,totalStock } = req.body;
     
         try {
             const updatedProduct = await Product.findByIdAndUpdate(
                 id, 
-                { name, description, price, imageUrl, category },
-                { new: true } // This ensures the updated document is returned
+                { name, description, price, imageUrl, category ,totalStock},
+                { new: true } 
             );
     
             if (!updatedProduct) {

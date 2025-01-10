@@ -6,6 +6,11 @@ const ProductSchema = new mongoose.Schema({
   price: Number,
   imageUrl: String,
   category:String,
+  totalStock: {
+    type: Number,
+    required: true, 
+    default: 0, 
+  },
 });
 
 const Product = mongoose.model('Product', ProductSchema);

@@ -66,7 +66,7 @@ const UserDashboard = () => {
 
   const handleLogout = async () => {
     try {
-      await api.post('/auth/logout', {}, { withCredentials: true });
+      await api.post('/logout', {}, { withCredentials: true });
       localStorage.removeItem('accessToken');
       navigate('/login');
     } catch (error) {
