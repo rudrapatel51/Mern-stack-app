@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import api from "../axios/axios"
+import { useNavigate } from 'react-router-dom';
 const CheckOut = () => {
   const { cartItems, totalAmount } = useSelector(state => state.cart);
   console.log(cartItems)
+  const navigate = useNavigate()
   console.log(totalAmount)
   const [formData, setFormData] = useState({
     firstName: '',
@@ -55,6 +57,8 @@ const CheckOut = () => {
       });
 
       setOrderSuccess(response.data);
+      alert("Order Placed SuccessFully")
+      navigate("/")
       console.log('Order Created:', response.data);
       localStorage.removeItem("cart")
     } catch (error) {

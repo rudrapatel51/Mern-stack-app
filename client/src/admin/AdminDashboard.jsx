@@ -184,6 +184,10 @@ const AdminDashboard = () => {
                                         <p className="text-gray-600 mb-2">{product.description}</p>
                                         <div className="flex justify-between items-center">
                                             <span className="text-xl font-bold text-gray-900">₹{product.price}</span>
+                                           
+                                        </div>
+                                        <div className="flex justify-between items-center">
+                                            <span className="text-xl font-bold text-gray-900">Stocks: {product.totalStock}</span>
                                             <button 
                                             onClick={() => setSelectedProduct(product)}
                                             className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600"
