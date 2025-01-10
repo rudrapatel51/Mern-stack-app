@@ -6,7 +6,6 @@ import cookieParser from "cookie-parser";
 import * as dotenv from 'dotenv';
 import logger from "./config/logger.js";
 import { requestLogger } from "./middleware/loggerMiddleware.js";
-import Order from './models/Order.js';
 import  {UserRegister, UserLogin, UserDetails, logoutUser } from "./routes/userRoutes.js"
 import { verifyUser ,verifyAdmin} from "./middleware/authMiddleware.js";
 import { AdminLogin, AdminRegister } from "./routes/adminRoutes.js";
@@ -35,7 +34,6 @@ if (logLevel === 'debug') {
     console.log(`Log level set to ${logLevel}`);
 }
 
-// connection to MongoDB 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
